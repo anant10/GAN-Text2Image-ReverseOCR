@@ -2,14 +2,13 @@ from __future__ import absolute_import
 import torch
 from torch import nn
 import pandas as pd
-from random import randrange
 from torch.optim import Adam
 from DC_GAN import DiscriminatorNN
 from DC_GAN import GeneratorNN
 from logger import Logger
 from torch.autograd.variable import Variable
 from torchvision import transforms, datasets
-from util import TensorGenerator, ImageVectors
+from util import TensorGenerator, ImageVectors, TextVectors
 torch.cuda.set_device(0)
 torch.set_default_tensor_type('torch.cuda.FloatTensor')
 
@@ -113,17 +112,8 @@ device = torch.device("cuda")
 for epoch in range(num_epochs):
     for n_batch, (real_batch, real_labels) in enumerate(data_loader):
         # 1. Train Discriminator
-        list_embeddings = []
-        list_wrongEmbeddings = []
-        for i in range(0, len(real_labels)):
-            lab = real_labels[i].item()
-            j = 0
-            for i in range(0, 5):
-                j = randrange(0, 10)
-                if j != lab:
-                    break
-            list_wrongEmbeddings.append(df.iat[j, 2])
-            list_embeddings.append(df.iat[lab, 2])
+        text_vect = TextVectors()
+        list_embeddings, list_wrongEmbeddings = text_vect.get_text_vectors(real_labels)
 
         list_embeddings = torch.FloatTensor(list_embeddings)
         list_wrongEmbeddings = torch.FloatTensor(list_wrongEmbeddings)
