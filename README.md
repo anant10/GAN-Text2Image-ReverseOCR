@@ -16,4 +16,4 @@ For any input like "six nine eight nine three six five four" the model will gene
 Example:
 ![](images/example.png)
 
-For the complete report of the project right from architecture building to model analysis click [here](Text to Image Synthesis using GAN Final Report.pdf)
+For the complete report of the project right from architecture building to model analysis click [here](Text%20to%20Image%20Synthesis%20using%20GAN%20Final%20Report.pdf)
