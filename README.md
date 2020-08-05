@@ -1,4 +1,4 @@
-# GAN-Text2Image-ReverseOCR
+# Text to Image Synthesis – Reverse Optical Character recognition
 
 The motivation behind this project is to understand automatic synthesis of images from a text description. Through this
 project, we wanted to explore architectures that could help us achieve our task of generating images. In recent years,
@@ -10,3 +10,10 @@ formulation to generate images. We have implemented the paper [Generative Advers
 
 Architecture:
 ![](images/Text-To-Image.JPG)
+
+For any input like "six nine eight nine three six five four" the model will generate handwritten images of the corresponding digits. The generated digits are resemble as if they have come from the true distribution.
+
+Example:
+![](images/example.png)
+
+For the complete report of the project right from architecture building to model analysis click [here](Text to Image Synthesis using GAN Final Report.pdf)
